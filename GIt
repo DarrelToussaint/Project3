@@ -1,0 +1,46 @@
+# Step 1: Set up project folder and initialize Git
+mkdir TestFolder
+cd TestFolder
+git init
+
+# Step 2: Add remote GitHub repository (replace with your URL)
+git remote add origin https://github.com/your-username/TestFolder.git
+
+# Step 3: Create and switch to branch1, add file1.py, and commit
+git checkout -b branch1
+echo "# This is file1.py" > file1.py
+git add file1.py
+git commit -m "Add file1.py on branch1"
+git push origin branch1
+
+# Step 4: Create and switch to branch2, add file2.c, and commit
+git checkout main
+git checkout -b branch2
+echo "// This is file2.c" > file2.c
+git add file2.c
+git commit -m "Add file2.c on branch2"
+git push origin branch2
+
+# Step 5: Create and switch to branch3, add file3.asm, and commit
+git checkout main
+git checkout -b branch3
+echo "; This is file3.asm" > file3.asm
+git add file3.asm
+git commit -m "Add file3.asm on branch3"
+git push origin branch3
+
+# Step 6: Merge each branch into main with --allow-unrelated-histories if needed
+git checkout main
+git pull origin main  # Ensure main is up-to-date
+
+# Merge branch1 into main
+git merge branch1 --allow-unrelated-histories
+git push origin main
+
+# Merge branch2 into main
+git merge branch2 --allow-unrelated-histories
+git push origin main
+
+# Merge branch3 into main
+git merge branch3 --allow-unrelated-histories
+git push origin main
